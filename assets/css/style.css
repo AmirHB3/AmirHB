@@ -1,0 +1,397 @@
+:root {
+    --primary-color: #007bff;
+    --primary-color-rgb: 0, 123, 255;
+    --background-color: #ffffff;
+    --text-color: #000000;
+    --card-bg: #ffffff;
+    --navbar-bg: rgba(255, 255, 255, 0.9);
+    --shadow-color: rgba(0, 0, 0, 0.1);
+}
+
+.animated-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background: linear-gradient(45deg, 
+        rgba(0, 255, 191, 0.651), 
+        rgba(174, 0, 255, 0.568), 
+        rgba(255, 166, 0, 0.692));
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
+}
+
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Dark Mode Variables */
+body.dark-mode {
+    --primary-color: #4da3ff;
+    --primary-color-rgb: 77, 163, 255;
+    --background-color: #1a1a1a;
+    --text-color: #ffffff;
+    --card-bg: #2a2a2a;
+    --navbar-bg: rgba(26, 26, 26, 0.9);
+    --shadow-color: rgba(255, 255, 255, 0.1);
+}
+
+body {
+    font-family: 'Vazirmatn', sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--background-color);
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* Navbar Styles */
+.navbar {
+    transition: all 0.3s ease;
+    background-color: var(--navbar-bg);
+}
+
+.navbar-scrolled {
+    box-shadow: 0 2px 10px var(--shadow-color);
+}
+
+.navbar-brand, .nav-link {
+    color: var(--text-color) !important;
+    transition: color 0.3s ease;
+}
+
+.navbar-brand:hover, .nav-link:hover {
+    color: var(--primary-color) !important;
+}
+
+/* Hamburger Menu */
+.hamburger-icon {
+    width: 30px;
+    height: 20px;
+    position: relative;
+    cursor: pointer;
+    transition: .5s ease-in-out;
+}
+
+.hamburger-icon span {
+    display: block;
+    position: absolute;
+    height: 3px;
+    width: 100%;
+    background: var(--text-color);
+    border-radius: 9px;
+    transition: .25s ease-in-out;
+}
+
+.hamburger-icon span:nth-child(1) { top: 0; }
+.hamburger-icon span:nth-child(2) { top: 10px; }
+.hamburger-icon span:nth-child(3) { top: 20px; }
+
+.navbar-toggler[aria-expanded="true"] .hamburger-icon span:nth-child(1) {
+    top: 10px;
+    transform: rotate(135deg);
+}
+
+.navbar-toggler[aria-expanded="true"] .hamburger-icon span:nth-child(2) {
+    opacity: 0;
+    left: 60px;
+}
+
+.navbar-toggler[aria-expanded="true"] .hamburger-icon span:nth-child(3) {
+    top: 10px;
+    transform: rotate(-135deg);
+}
+
+/* Progress Bar Animation */
+.progress-bar {
+    background-color: var(--primary-color);
+    transition: width 1s ease-in-out;
+}
+
+/* Dark Mode Button */
+#darkModeToggle {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 1030;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: var(--background-color);
+    color: var(--primary-color);
+    font-size: 1.2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 5px var(--shadow-color);
+    border: 2px solid var(--primary-color);
+}
+
+body.dark-mode #darkModeToggle {
+    background-color: var(--primary-color);
+    color: var(--background-color);
+}
+
+/* Icon Animation */
+#darkModeToggle .bi {
+    transition: transform 0.5s ease;
+}
+
+#darkModeToggle:hover .bi {
+    transform: rotate(360deg);
+}
+
+/* Section Styles */
+section {
+    padding: 80px 0;
+}
+
+/* Card Styles */
+.card {
+    background-color: var(--card-bg);
+    border: none;
+    box-shadow: 0 4px 6px var(--shadow-color);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    color: #000000;
+}
+
+body.dark-mode .card {
+    background-color: #ffffff;
+}
+
+/* Button Styles */
+.btn-primary {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: transparent;
+    color: var(--primary-color);
+}
+
+/* Form Styles */
+.form-control {
+    background-color: var(--card-bg);
+    border-color: var(--primary-color);
+    color: var(--text-color);
+}
+
+.form-control:focus {
+    box-shadow: 0 0 0 0.2rem rgba(var(--primary-color-rgb), 0.25);
+}
+
+/* Footer Styles */
+footer {
+    background-color: var(--card-bg);
+    color: var(--text-color);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    #darkModeToggle {
+        top: 10px;
+        left: 10px;
+        width: 40px;
+        height: 40px;
+        font-size: 1rem;
+    }
+
+    section {
+        padding: 60px 0;
+    }
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.fade-in {
+    animation: fadeIn 1s ease-out;
+}
+
+/* Skills and Contact sections dark mode styles */
+body.dark-mode #skills,
+body.dark-mode #contact {
+    color: #000000;
+}
+
+body.dark-mode #skills .skill-item h3,
+body.dark-mode #contact .form-label,
+body.dark-mode #contact .form-control {
+    color: #000000;
+}
+
+body.dark-mode #skills .progress-bar {
+    background-color: #007bff;
+}
+
+body.dark-mode #contact .form-control {
+    background-color: #ffffff;
+    border-color: #007bff;
+}
+
+body.dark-mode #contact .btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+    color: #ffffff;
+}
+
+body.dark-mode #contact .btn-primary:hover {
+    background-color: #0056b3;
+    border-color: #0056b3;
+}
+
+
+/* glitch effect for Title */
+.glitch {
+    position: relative;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 1.03em;
+    margin-top: 20px;
+    display: block;
+}
+.glitch::before,
+.glitch::after {
+    content: "امیرحسین بهرامی";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0);
+    overflow: hidden;
+    clip: rect(0, 900px, 0, 0);
+}
+.glitch::before {
+    left: 2px;
+    text-shadow: -4px 0 red;
+    animation: glitch 2.5s infinite linear alternate-reverse;
+}
+.glitch::after {
+    left: -2px;
+    text-shadow: -4px 0 blue;
+    animation: glitch 2.5s infinite linear alternate-reverse;
+    animation-delay: -1s;
+}
+@keyframes glitch {
+    0% {
+        clip: rect(44px, 9999px, 56px, 0);
+        transform: skew(0.3deg);
+    }
+    5% {
+        clip: rect(99px, 9999px, 28px, 0);
+        transform: skew(0.6deg);
+    }
+    10% {
+        clip: rect(17px, 9999px, 88px, 0);
+        transform: skew(0.2deg);
+    }
+    15% {
+        clip: rect(100px, 9999px, 72px, 0);
+        transform: skew(0.5deg);
+    }
+    20% {
+        clip: rect(86px, 9999px, 43px, 0);
+        transform: skew(0.1deg);
+    }
+    25% {
+        clip: rect(13px, 9999px, 74px, 0);
+        transform: skew(0.4deg);
+    }
+    30% {
+        clip: rect(58px, 9999px, 36px, 0);
+        transform: skew(0.3deg);
+    }
+    35% {
+        clip: rect(74px, 9999px, 92px, 0);
+        transform: skew(0.5deg);
+    }
+    40% {
+        clip: rect(87px, 9999px, 27px, 0);
+        transform: skew(0.2deg);
+    }
+    45% {
+        clip: rect(24px, 9999px, 96px, 0);
+        transform: skew(0.1deg);
+    }
+    50% {
+        clip: rect(65px, 9999px, 89px, 0);
+        transform: skew(0.4deg);
+    }
+    55% {
+        clip: rect(92px, 9999px, 14px, 0);
+        transform: skew(0.3deg);
+    }
+    60% {
+        clip: rect(38px, 9999px, 91px, 0);
+        transform: skew(0.6deg);
+    }
+    65% {
+        clip: rect(51px, 9999px, 30px, 0);
+        transform: skew(0.1deg);
+    }
+    70% {
+        clip: rect(73px, 9999px, 58px, 0);
+        transform: skew(0.2deg);
+    }
+    75% {
+        clip: rect(90px, 9999px, 45px, 0);
+        transform: skew(0.5deg);
+    }
+    80% {
+        clip: rect(61px, 9999px, 77px, 0);
+        transform: skew(0.4deg);
+    }
+    85% {
+        clip: rect(84px, 9999px, 19px, 0);
+        transform: skew(0.3deg);
+    }
+    90% {
+        clip: rect(79px, 9999px, 60px, 0);
+        transform: skew(0.1deg);
+    }
+    95% {
+        clip: rect(42px, 9999px, 22px, 0);
+        transform: skew(0.6deg);
+    }
+
+    100% {
+        clip: rect(29px, 9999px, 83px, 0);
+        transform: skew(0.5deg);
+    }
+}
+
+/* Type effect */
+
+.title-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.animated-text {
+    position: relative;
+    overflow: hidden;
+    border-right: 0.15em solid #fff;
+    white-space: nowrap;
+    animation: blink-caret 0.75s step-end infinite;
+}
+
+.keep-cursor {
+    animation: blink-caret 0.75s step-end infinite;
+}
+
+@keyframes blink-caret {
+    from { border-color: transparent; }
+}
