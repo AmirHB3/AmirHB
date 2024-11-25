@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     // Dark mode functionality
     const darkModeToggle = document.getElementById('darkModeToggle');
     const body = document.body;
@@ -36,8 +36,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // Animate skill bars
-    const skillSection = 
-document.getElementById('skills');
+    const skillSection = document.getElementById('skills');
     const progressBars = document.querySelectorAll('.progress-bar');
 
     const animateSkills = () => {
@@ -55,18 +54,29 @@ document.getElementById('skills');
     window.addEventListener('scroll', animateSkills);
 
     // Form submission
-    const contactForm = document.getElementById('contact-form');
-    contactForm.addEventListener('submit', function(e) {
-        e.preventDefault();
-        alert('پیام شما با موفقیت ارسال شد. به زودی با شما تماس خواهیم گرفت.');
-        this.reset();
-    });
+    const contactForm = document.getElementById('contact-form'); // select the form
+    if (contactForm) {
+        contactForm.addEventListener('submit', function (e) {
+            e.preventDefault();
 
-
-    setInterval(createBinary, 200);
+            // code to submit form
+            Swal.fire({
+                icon: 'success',
+                title: 'پیام شما ارسال شد!',
+                text: 'به زودی با شما تماس خواهیم گرفت.',
+                confirmButtonText: 'باشه',
+                confirmButtonColor: '#007bff',
+                background: '#f9f9f9',
+                color: '#333',
+                customClass: {
+                    popup: 'animated fadeInDown'
+                }
+            });
+            this.reset();
+        });
+    }
 });
-
-// type effect
+// Type effect
 const text = "امیرحسین بهرامی";
 let index = 0;
 
@@ -80,7 +90,7 @@ function typeEffect() {
     }
 }
 
-window.onload = function() {
+window.onload = function () {
     document.getElementById("animated-title").innerHTML = "";
     typeEffect();
 };
