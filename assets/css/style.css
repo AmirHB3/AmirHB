@@ -166,6 +166,7 @@ body.dark-mode .card {
 
 /* Button Styles */
 .btn-primary {
+    color: var(--text-color);
     background-color: var(--primary-color);
     border-color: var(--primary-color);
     transition: all 0.3s ease;
@@ -174,6 +175,15 @@ body.dark-mode .card {
 .btn-primary:hover {
     background-color: transparent;
     color: var(--primary-color);
+}
+
+.card .btn-primary{
+    margin: 0 auto;
+    display: block;
+    color: var(--text-color);
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    transition: all 0.3s ease;
 }
 
 /* Form Styles */
@@ -424,4 +434,56 @@ body.dark-mode #contact .btn-primary:hover {
 }
 .custom-alert-content button:hover {
     background-color: #0056b3;
+}
+
+/* custom footer */
+#custom-footer {
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+#custom-footer.light-mode {
+    background-color: #f8f9fa;
+    color: #333;
+}
+
+#custom-footer.dark-mode {
+    background-color: #343a40;
+    color: #f8f9fa;
+}
+
+#custom-footer .social-icons a {
+    color: inherit;
+    transition: color 0.3s ease;
+}
+
+#custom-footer.light-mode .social-icons a:hover {
+    color: #007bff;
+}
+
+#custom-footer.dark-mode .social-icons a:hover {
+    color: #17a2b8;
+}
+
+.img-fluid {
+    display: block;
+    margin: auto;
+}
+
+/* custom scroll bar */
+::-webkit-scrollbar {
+    width: 5px;
+}
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+::-webkit-scrollbar-thumb {
+    background: #888888;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+.img-fluid .article-img {
+    display: block;
+    margin: auto;
 }
