@@ -1,8 +1,48 @@
 <?php
 include 'components/header.php';
-include 'components/navbar.php';
 ?>
-
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-light fixed-top bg-light">
+    <div class="container">
+        <a class="navbar-brand mx-auto d-none d-lg-block mt-1" href="#home">AmirHB</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <div class="hamburger-icon hamburger-toggler">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="components/loginAction.php">ورود</a>
+                </li>
+                <span class="nav-item nav-divider mt-2 fw-bold d-none d-lg-block">|</span>
+                <li class="nav-item">
+                    <a class="nav-link" href="components/registerAction.php">ثبت نام</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#home">خانه</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#about">درباره من</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#skills">مهارت‌ها</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#projects">مقاله‌ها</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#contact">تماس</a>
+                </li>
+            </ul>
+        </div>
+        <button id="darkModeToggle" class="btn btn-outline-secondary" aria-label="تغییر حالت تاریک/روشن">
+            <i id="darkModeIcon" class="bi bi-moon-fill"></i>
+        </button>
+    </div>
+</nav>
 <!-- About Section -->
 <section id="about" class="py-5 fade-in">
                 <div class="container">

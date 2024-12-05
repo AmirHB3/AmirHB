@@ -487,3 +487,34 @@ body.dark-mode #contact .btn-primary:hover {
     display: block;
     margin: auto;
 }
+
+
+/* logo gradient */
+.navbar-brand {
+    font-family: 'Vazirmatn', sans-serif;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: transparent;
+    background: linear-gradient(45deg, 
+        rgba(0, 255, 191, 0.651), 
+        rgba(174, 0, 255, 0.568), 
+        rgba(255, 166, 0, 0.692));
+    background-size: 300%;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gradientBG 15s ease infinite;
+}
+
+/* Gradient Animation */
+@keyframes gradient-move {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
