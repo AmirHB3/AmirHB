@@ -66,6 +66,7 @@ input[type="password"]:focus {
 }
 
 input[type="submit"] {
+    font-family: "vazirmatn";
     width: 80%;
     height: 80%;
     padding: 10px 20px;

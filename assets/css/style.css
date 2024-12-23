@@ -105,6 +105,22 @@ body {
     transform: rotate(-135deg);
 }
 
+.navbar-nav .nav-link {
+    font-weight: bold;
+    padding: 0.5rem 1rem;
+}
+
+.navbar-toggler {
+    border: none;
+    outline: none;
+}
+
+section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
 /* Progress Bar Animation */
 .progress-bar {
     background-color: var(--primary-color);
@@ -185,6 +201,7 @@ body.dark-mode .card {
     border-color: var(--primary-color);
     transition: all 0.3s ease;
 }
+
 
 /* Form Styles */
 .form-control {
@@ -484,8 +501,8 @@ body.dark-mode #contact .btn-primary:hover {
 }
 
 .img-fluid .article-img {
-    display: block;
-    margin: auto;
+    display: flex;
+    margin: 0 auto;
 }
 
 
@@ -517,4 +534,27 @@ body.dark-mode #contact .btn-primary:hover {
     100% {
         background-position: 0% 50%;
     }
+}
+
+.skill-icon {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.fade-in {
+    animation: fadeIn 1s;
+}
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.form-control::placeholder {
+    color: #6c757d;
+}
+.dark-mode .form-control::placeholder {
+    color: #adb5bd;
+}
+.form-control {
+    text-align: right;
 }

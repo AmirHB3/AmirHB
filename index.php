@@ -60,40 +60,46 @@ include 'components/header.php';
             </section>
 
 <!-- Skills Section -->
-<section id="skills" class="py-5 bg-light fade-in">
-                <div class="container">
-                    <h2 class="text-center mb-5">مهارت‌های من</h2>
-                    <div class="row">
-                        <div class="col-md-6 col-lg-4 mb-4">
-                            <div class="skill-card">
-                                <i class="bi bi-code-slash skill-icon"></i>
-                                <h3 class="h5">HTML/CSS</h3>
-                                <div class="progress">
-                                    <div class="progress-bar" role="progressbar" style="width: 50%;" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">50%</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6 col-lg-4 mb-4">
-                            <div class="skill-card">
-                                <i class="bi bi-braces skill-icon"></i>
-                                <h3 class="h5">Python</h3>
-                                <div class="progress">
-                                    <div class="progress-bar" role="progressbar" style="width: 90%;" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100">90%</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6 col-lg-4 mb-4">
-                            <div class="skill-card">
-                                <i class="bi bi-code skill-icon"></i>
-                                <h3 class="h5">Django</h3>
-                                <div class="progress">
-                                    <div class="progress-bar" role="progressbar" style="width: 80%;" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100">80%</div>
-                                </div>
+<section id="skills" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="text-center mb-5">مهارت‌های من</h2>
+            <div class="row">
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="card">
+                        <div class="card-body text-center">
+                            <i class="bi bi-code-slash skill-icon"></i>
+                            <h3 class="card-title h5">HTML/CSS</h3>
+                            <div class="progress">
+                                <div class="progress-bar" role="progressbar" style="width: 50%;" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">50%</div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </section>
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="card">
+                        <div class="card-body text-center">
+                            <i class="bi bi-braces skill-icon"></i>
+                            <h3 class="card-title h5">Python</h3>
+                            <div class="progress">
+                                <div class="progress-bar" role="progressbar" style="width: 90%;" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100">90%</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="card">
+                        <div class="card-body text-center">
+                            <i class="bi bi-code skill-icon"></i>
+                            <h3 class="card-title h5">Django</h3>
+                            <div class="progress">
+                                <div class="progress-bar" role="progressbar" style="width: 80%;" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100">80%</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
 <!-- Articles Section -->
 <section id="projects" class="py-5 fade-in">
@@ -136,29 +142,28 @@ include 'components/header.php';
 
 <!-- Contact Section -->
 <section id="contact" class="py-5 bg-light fade-in">
-                <div class="container">
-                    <h2 class="text-center mb-5">ارتباط با من</h2>
-                    <div class="row justify-content-center">
-                        <div class="col-md-8">
-                            <form id="contact-form">
-                                <div class="mb-3">
-                                    <input type="text" class="form-control" id="name" placeholder="نام شما" required>
-                                </div>
-                                <div class="mb-3">
-                                    <input type="email" class="form-control" id="email" placeholder="ایمیل شما" required>
-                                </div>
-                                <div class="mb-3">
-                                    <textarea class="form-control" id="message" rows="5" placeholder="پیام شما" required></textarea>
-                                </div>
-                                <div class="text-center">
-                                    <button type="submit" class="btn btn-primary btn-lg">ارسال</button>
-                                </div>
-                            </form>
+        <div class="container">
+            <h2 class="text-center mb-5">ارتباط با من</h2>
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+                    <form id="contact-form">
+                        <div class="mb-3">
+                            <input type="text" class="form-control" id="name" placeholder="نام شما" required>
                         </div>
-                    </div>
+                        <div class="mb-3">
+                            <input type="email" class="form-control" id="email" placeholder="ایمیل شما" required>
+                        </div>
+                        <div class="mb-3">
+                            <textarea class="form-control" id="message" rows="5" placeholder="پیام شما" required></textarea>
+                        </div>
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-primary btn-lg">ارسال</button>
+                        </div>
+                    </form>
                 </div>
-            </section>
-
+            </div>
+        </div>
+        </section>
 <?php
 include 'components/footer.php';
 ?>
