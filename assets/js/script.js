@@ -1,5 +1,4 @@
 document.addEventListener('DOMContentLoaded', function () {
-    // Dark mode functionality
     const darkModeToggle = document.getElementById('darkModeToggle');
     const body = document.body;
     const darkModeIcon = document.getElementById('darkModeIcon');
@@ -7,10 +6,9 @@ document.addEventListener('DOMContentLoaded', function () {
     const formInputs = document.querySelectorAll('.form-control');
     const skillsSection = document.getElementById('skills');
     const cards = document.querySelectorAll('.card');
-
-    // custom footer light/dark
     const footer = document.getElementById('custom-footer');
 
+    // Function to set footer mode based on dark/light theme
     function setFooterMode(isDark) {
         footer.classList.toggle('dark-mode', isDark);
         footer.classList.toggle('light-mode', !isDark);
@@ -25,27 +23,25 @@ document.addEventListener('DOMContentLoaded', function () {
             card.classList.toggle('bg-light', !isDark);
             card.classList.toggle('bg-dark', isDark);
             card.classList.toggle('text-light', isDark);
-            
         });
     }
 
+    // Function to set dark mode styles
     function setDarkMode(isDark) {
         body.classList.toggle('dark-mode', isDark);
         body.classList.toggle('text-light', isDark);
         darkModeIcon.className = isDark ? 'bi bi-sun-fill' : 'bi bi-moon-fill';
         localStorage.setItem('darkMode', isDark ? 'enabled' : 'disabled');
-        
-        // Update navbar
+
+        // Update navbar styles
         const navbar = document.querySelector('.navbar');
-        
         if (navbar) {
             navbar.classList.toggle('navbar-light', !isDark);
             navbar.classList.toggle('navbar-dark', isDark);
             navbar.classList.toggle('bg-light', !isDark);
             navbar.classList.toggle('bg-dark', isDark);
         }
-        
-        
+
         // Toggle contact section classes
         if (contactSection) {
             contactSection.classList.toggle('bg-light', !isDark);
@@ -57,25 +53,21 @@ document.addEventListener('DOMContentLoaded', function () {
         formInputs.forEach(input => {
             input.classList.toggle('bg-dark', isDark);
             input.classList.toggle('text-light', isDark);
-            
             input.style.borderColor = isDark ? '#6c757d' : ''; // Adjust border color in dark mode
         });
 
-        
-
-        // Update cards
-        document.querySelectorAll('.card').forEach(card => {
+        // Update cards styles
+        cards.forEach(card => {
             card.classList.toggle('bg-dark', isDark);
             card.classList.toggle('text-white', isDark);
         });
     }
-    
 
     const savedDarkMode = localStorage.getItem('darkMode');
     const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
 
     if (savedDarkMode === 'enabled' || (savedDarkMode === null && prefersDarkScheme.matches)) {
-        setDarkMode(true);
+        setDarkMode(true); // Set dark mode based on saved preference or system preference
     }
 
     darkModeToggle.addEventListener('click', () => setDarkMode(!body.classList.contains('dark-mode')));
@@ -83,10 +75,12 @@ document.addEventListener('DOMContentLoaded', function () {
     // Navbar scroll effect
     const navbar = document.querySelector('.navbar');
     window.addEventListener('scroll', () => {
-        navbar.classList.toggle('navbar-scrolled', window.scrollY > 50);
+        if (navbar) {
+            navbar.classList.toggle('navbar-scrolled', window.scrollY > 50);
+        }
     });
 
-    // Initial setting
+    // Initial setting for footer mode
     setFooterMode(body.classList.contains('dark-mode'));
 
     // Update footer when dark mode changes
@@ -95,7 +89,7 @@ document.addEventListener('DOMContentLoaded', function () {
         setFooterMode(isDark);
     });
 
-    // Smooth scrolling
+    // Smooth scrolling for anchor links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
@@ -105,7 +99,7 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
-    // Animate skill bars
+    // Animate skill bars when in view
     const skillSection = document.getElementById('skills');
     const progressBars = document.querySelectorAll('.progress-bar');
 
@@ -118,51 +112,56 @@ document.addEventListener('DOMContentLoaded', function () {
                 progressBars.forEach(bar => {
                     bar.style.width = bar.getAttribute('aria-valuenow') + '%';
                 });
-                window.removeEventListener('scroll', animateSkills);
+                window.removeEventListener('scroll', animateSkills); // Remove event listener after animation
             }
         }
     };
 
     window.addEventListener('scroll', animateSkills);
 
-    // Form submission
-    const contactForm = document.getElementById('contact-form'); // select the form
+    // Form submission handling with SweetAlert customization
+    const contactForm = document.getElementById('contact-form'); // Select the form
+
     if (contactForm) {
         contactForm.addEventListener('submit', function (e) {
             e.preventDefault();
 
-            // code to submit form
+            // Customize SweetAlert appearance and behavior
             Swal.fire({
                 icon: 'success',
                 title: 'پیام شما ارسال شد!',
                 text: 'به زودی با شما تماس خواهم گرفت.',
                 confirmButtonText: 'باشه',
                 confirmButtonColor: '#007bff',
-                background: '#f9f9f9',
-                color: '#333',
+                background: body.classList.contains('dark-mode') ? '#343a40' : '#f9f9f9',
+                color: body.classList.contains('dark-mode') ? '#f8f9fa' : '#333',
                 customClass: {
-                    popup: 'animated fadeInDown'
+                    popup: 'animated fadeInDown',
+                    title: 'swal-title',
+                    htmlContainer: 'swal-html'
                 }
             });
-            this.reset();
+
+            this.reset(); // Reset form fields after submission
         });
     }
-});
-// Type effect
-const text = "امیرحسین بهرامی";
-let index = 0;
 
-function typeEffect() {
-    const titleElement = document.getElementById("animated-title");
+    // Type effect for animated title
+    const text = "امیرحسین بهرامی";  // Change to your name or desired text
+    let index = 0;
 
-    if (index < text.length) {
-        titleElement.innerHTML += text.charAt(index);
-        index++;
-        setTimeout(typeEffect, 100);
+    function typeEffect() {
+        const titleElement = document.getElementById("animated-title");
+        
+        if (index < text.length) {
+            titleElement.innerHTML += text.charAt(index);
+            index++;
+            setTimeout(typeEffect, 100); // Adjust typing speed here
+        }
     }
-}
 
-window.onload = function () {
-    document.getElementById("animated-title").innerHTML = "";
-    typeEffect();
-};
+    window.onload = function () {
+        document.getElementById("animated-title").innerHTML = ""; // Clear previous content on load
+        typeEffect(); // Start typing effect on load
+    };
+});

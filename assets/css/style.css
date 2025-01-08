@@ -289,7 +289,7 @@ body.dark-mode #contact .btn-primary:hover {
 }
 .glitch::before,
 .glitch::after {
-    content: "امیرحسین بهرامی";
+    content: "امیرحسین بهرامی";  /*change to your name  */
     position: absolute;
     top: 0;
     left: 0;
@@ -423,43 +423,65 @@ body.dark-mode #contact .btn-primary:hover {
     from { border-color: transparent; }
 }
 
-
 /* custom alert */
 .hidden {
     display: none;
 }
+/* Custom Alert Styles */
 .custom-alert {
     position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background-color: #fff;
+    background-color: var(--background-color); /* Light mode background */
     padding: 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     border-radius: 8px;
     z-index: 1000;
     text-align: center;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
+
+.custom-alert-content h3,
+.custom-alert-content p {
+    margin: 10px 0;
+}
+
+/* Light Mode */
+.custom-alert.light-mode {
+    background-color: #ffffff; /* White background */
+    color: #333; /* Dark text */
+}
+
+/* Dark Mode */
+.custom-alert.dark-mode {
+    background-color: #343a40; /* Dark background */
+    color: #f8f9fa; /* Light text */
+}
+
 .custom-alert-content button {
     margin-top: 10px;
     padding: 8px 16px;
     border: none;
-    background-color: #007bff;
+    background-color: var(--primary-color);
     color: #fff;
     border-radius: 4px;
     cursor: pointer;
 }
+
 .custom-alert-content button:hover {
-    background-color: #0056b3;
+    background-color: #0056b3; /* Button hover effect */
 }
+
 
 /* custom footer */
 #custom-footer {
     transition: background-color 0.3s ease, color 0.3s ease;
+    box-shadow: #333;
 }
 
 #custom-footer.light-mode {
-    background-color: #f8f9fa;
+    background-color: #ffffff;
     color: #333;
 }
 
@@ -536,6 +558,7 @@ body.dark-mode #contact .btn-primary:hover {
     }
 }
 
+/* Skill icon */
 .skill-icon {
     font-size: 2rem;
     margin-bottom: 1rem;
