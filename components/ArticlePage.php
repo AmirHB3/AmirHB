@@ -9,11 +9,11 @@ include '../components/Customheader.php';
             <h1 class="mb-4 font-weight-bold">عنوان مقاله</h1>
             
             <div class="d-flex align-items-center mb-4 text-muted">
-                <img src="https://via.placeholder.com/40" alt="نویسنده" class="rounded-circle mr-2 p-1" width="50" height="50">
+                <img src="https://placehold.co/40" alt="نویسنده" class="rounded-circle mr-2 p-1" width="50" height="50">
                 <span>نوشته شده توسط امیرحسین بهرامی | ۱۵ خرداد ۱۴۰۲</span>
             </div>
             
-            <img src="https://via.placeholder.com/800x400" alt="تصویر مقاله" class="img-fluid article-img rounded mb-4">
+            <img src="https://placehold.co/800x400" alt="تصویر مقاله" class="img-fluid article-img rounded mb-4">
             
             <div class="article-content">
                 <h2 class="mt-4 mb-3">بخش اول</h2>

@@ -522,11 +522,13 @@ body.dark-mode #contact .btn-primary:hover {
     background: #555;
 }
 
-.img-fluid .article-img {
-    display: flex;
+.img-fluid.article-img {
+    display: block;
     margin: 0 auto;
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
 }
-
 
 /* logo gradient */
 .navbar-brand {
@@ -544,6 +546,18 @@ body.dark-mode #contact .btn-primary:hover {
     -webkit-text-fill-color: transparent;
     animation: gradientBG 15s ease infinite;
 }
+.navbar-brand.d-lg-none {
+    position: fixed;
+    left: 50%;
+    transform: translateX(-50%);
+    top: -4px;
+    white-space: nowrap;
+    z-index: 1050;
+}
+
+.navbar-toggler {
+    z-index: 1051;
+}
 
 /* Gradient Animation */
 @keyframes gradient-move {
@@ -558,7 +572,6 @@ body.dark-mode #contact .btn-primary:hover {
     }
 }
 
-/* Skill icon */
 .skill-icon {
     font-size: 2rem;
     margin-bottom: 1rem;

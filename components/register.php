@@ -8,7 +8,7 @@ if($password != $repassword){
     echo("<h1>رمز عبور نادرست می باشد!</h1>");
 }
 else{
-    echo("<h1>ورود موفقیت آمیز</h1>");
+    echo("<h1>ثبت نام موفقیت آمیز</h1>");
     echo("<p>نام کاربری: " . $username . "</p>");
     echo("<p>ایمیل : " . $email . "</p>");
     echo("<p>کلمه عبور: " . $password . "</p>");

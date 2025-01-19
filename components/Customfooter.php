@@ -1,5 +1,4 @@
 </main>
-        
         <!-- Footer -->
         <footer class="bg-white text-dark py-4">
             <div class="container text-center">
