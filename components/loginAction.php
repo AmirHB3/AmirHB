@@ -9,12 +9,11 @@
 </head>
 <body>
     <h1>فرم ورود</h1>
-    <form action="login.php" method="get">
-        <label for="username">نام کاربری:</label>
-        <input type="text" id="username" name="username" required>
-        <label for="password">کلمه عبور:</label>
-        <input type="password" id="password" name="password" required>
+    <form action="login.php" method="post">
+        <input type="text" id="username" name="username" placeholder="نام کاربری" required>
+        <input type="password" id="password" name="password" placeholder="کلمه عبور" required>
         <input type="submit" value="ورود">
+        <p>حساب کاربری ندارید؟ <a href="registerAction.php">ایجاد حساب کاربری</a></p>
     </form>
 </body>
 </html>

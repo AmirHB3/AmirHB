@@ -9,16 +9,13 @@
 </head>
 <body>
     <h1>فرم ثبت نام</h1>
-    <form action="register.php" method="get">
-        <label for="username">نام کاربری:</label>
-        <input type="text" id="username" name="username" required>
-        <label for="email">ایمیل: </label>
-        <input type="email" id="email" name="email" required>
-        <label for="password">کلمه عبور:</label>
-        <input type="password" id="password" name="password" required>
-        <label for="repassword">کلمه عبور:</label>
-        <input type="password" id="repassword" name="repassword" required>
+    <form action="register.php" method="post">
+        <input type="text" id="username" name="username" placeholder="نام کاربری" required>
+        <input type="email" id="email" name="email" placeholder="ایمیل" required>
+        <input type="password" id="password" name="password" placeholder="کلمه عبور" required>
+        <input type="password" id="repassword" name="repassword" placeholder="تکرار کلمه عبور" required>
         <input type="submit" value="ورود">
+        <p>حساب کاربری دارید؟ <a href="loginAction.php">وارد شوید</a></p>
     </form>
 </body>
 </html>
