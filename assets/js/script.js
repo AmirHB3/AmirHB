@@ -93,12 +93,20 @@ document.addEventListener('DOMContentLoaded', function () {
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
-            document.querySelector(this.getAttribute('href')).scrollIntoView({
-                behavior: 'smooth'
-            });
+            
+            const targetId = this.getAttribute('href');            
+            if (targetId.length > 1) {
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            }
         });
     });
-
+    
     // Animate skill bars when in view
     const skillSection = document.getElementById('skills');
     const progressBars = document.querySelectorAll('.progress-bar');
