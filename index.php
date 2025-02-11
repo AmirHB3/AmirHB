@@ -110,6 +110,46 @@ include 'components/header.php';
     </div>
 </section>
 
+<!-- Articles Section -->
+<section id="projects" class="py-5 fade-in">
+        <div class="container">
+            <h2 class="text-center mb-5">مقاله های من</h2>
+            <div class="row">
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="card project-card">
+                        <img src="https://placehold.co/300x200" class="card-img-top" alt="تصویر مقاله">
+                        <div class="card-body">
+                            <h3 class="card-title h5">نام مقاله ۱</h3>
+                            <p class="card-text">توضیح مختصری درباره مقاله.</p>
+                            <a href="components/ArticlePage.php" class="btn btn-primary">مشاهده مقاله</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="card project-card">
+                        <img src="https://placehold.co/300x200" class="card-img-top" alt="تصویر مقاله">
+                        <div class="card-body">
+                            <h3 class="card-title h5">نام مقاله ۲</h3>
+                            <p class="card-text">توضیح مختصری درباره مقاله.</p>
+                            <a href="components/ArticlePage.php" class="btn btn-primary">مشاهده مقاله</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="card project-card">
+                        <img src="https://placehold.co/300x200" class="card-img-top" alt="تصویر مقاله">
+                        <div class="card-body">
+                            <h3 class="card-title h5">نام مقاله ۳</h3>
+                            <p class="card-text">توضیح مختصری درباره مقاله.</p>
+                            <a href="components/ArticlePage.php" class="btn btn-primary">مشاهده مقاله</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+</section>
+
+
 <!-- Contact Section -->
 <section id="contact" class="py-5 bg-light fade-in">
     <div class="container">
