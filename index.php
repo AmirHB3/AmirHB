@@ -45,6 +45,9 @@ include 'components/header.php';
                 <li class="nav-item">
                     <a class="nav-link" href="#contact">تماس</a>
                 </li>
+                <li>
+                    <a class="nav-link" href="components/manageArticles.php">مدیریت مقالات</a>
+                </li>
             </ul>
         </div>
         <button id="darkModeToggle" class="btn btn-outline-secondary" aria-label="تغییر حالت تاریک/روشن">
@@ -112,44 +115,42 @@ include 'components/header.php';
 
 <!-- Articles Section -->
 <section id="projects" class="py-5 fade-in">
-        <div class="container">
-            <h2 class="text-center mb-5">مقاله های من</h2>
-            <div class="row">
-                <div class="col-md-6 col-lg-4 mb-4">
-                    <div class="card project-card">
-                        <img src="https://placehold.co/300x200" class="card-img-top" alt="تصویر مقاله">
-                        <div class="card-body">
-                            <h3 class="card-title h5">نام مقاله ۱</h3>
-                            <p class="card-text">توضیح مختصری درباره مقاله.</p>
-                            <a href="components/ArticlePage.php" class="btn btn-primary">مشاهده مقاله</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4 mb-4">
-                    <div class="card project-card">
-                        <img src="https://placehold.co/300x200" class="card-img-top" alt="تصویر مقاله">
-                        <div class="card-body">
-                            <h3 class="card-title h5">نام مقاله ۲</h3>
-                            <p class="card-text">توضیح مختصری درباره مقاله.</p>
-                            <a href="components/ArticlePage.php" class="btn btn-primary">مشاهده مقاله</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4 mb-4">
-                    <div class="card project-card">
-                        <img src="https://placehold.co/300x200" class="card-img-top" alt="تصویر مقاله">
-                        <div class="card-body">
-                            <h3 class="card-title h5">نام مقاله ۳</h3>
-                            <p class="card-text">توضیح مختصری درباره مقاله.</p>
-                            <a href="components/ArticlePage.php" class="btn btn-primary">مشاهده مقاله</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+    <div class="container">
+        <h2 class="text-center mb-5">مقاله های من</h2>
+        <div class="row">
+            <?php
+            // اتصال به پایگاه داده
+            $conn = mysqli_connect("localhost", "root", "", "amirhb");
+            if (!$conn) {
+                die("Connection failed: " . mysqli_connect_error());
+            }
+
+            // دریافت مقالات
+            $sql = "SELECT * FROM articles ORDER BY id DESC";
+            $result = mysqli_query($conn, $sql);
+
+            if (mysqli_num_rows($result) > 0) {
+                while ($row = mysqli_fetch_array($result)) {
+                    echo '<div class="col-md-6 col-lg-4 mb-4">';
+                    echo '<div class="card project-card">';
+                    echo '<img src="components/' . htmlspecialchars($row['image_path']) . '" class="card-img-top article-image" alt="تصویر مقاله">';
+                    echo '<div class="card-body">';
+                    echo '<h3 class="card-title h5">' . htmlspecialchars($row['title']) . '</h3>';
+                    echo '<p class="card-text">' . substr(strip_tags($row['content']), 0, 100) . '...</p>';
+                    echo '<a href="components/ArticlePage.php?id=' . $row['id'] . '" class="btn btn-primary">مشاهده مقاله</a>';
+                    echo '</div>';
+                    echo '</div>';
+                    echo '</div>';
+                }
+            } else {
+                echo '<p>مقاله‌ای وجود ندارد.</p>';
+            }
+
+            mysqli_close($conn);
+            ?>
         </div>
+    </div>
 </section>
-
-
 <!-- Contact Section -->
 <section id="contact" class="py-5 bg-light fade-in">
     <div class="container">
