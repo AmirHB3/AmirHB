@@ -594,9 +594,3 @@ body.dark-mode #contact .btn-primary:hover {
 .form-control {
     text-align: right;
 }
-
-.article-image {
-    width: 300px;
-    height: 200px;
-    object-fit: cover;
-}

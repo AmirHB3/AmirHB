@@ -133,7 +133,7 @@ include 'components/header.php';
                 while ($row = mysqli_fetch_array($result)) {
                     echo '<div class="col-md-6 col-lg-4 mb-4">';
                     echo '<div class="card project-card">';
-                    echo '<img src="components/' . htmlspecialchars($row['image_path']) . '" class="card-img-top article-image" alt="تصویر مقاله">';
+                    echo '<img src="components/' . htmlspecialchars($row['image_path']) . '" class="card-img-top" alt="تصویر مقاله">';
                     echo '<div class="card-body">';
                     echo '<h3 class="card-title h5">' . htmlspecialchars($row['title']) . '</h3>';
                     echo '<p class="card-text">' . substr(strip_tags($row['content']), 0, 100) . '...</p>';
