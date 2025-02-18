@@ -45,9 +45,11 @@ include 'components/header.php';
                 <li class="nav-item">
                     <a class="nav-link" href="#contact">تماس</a>
                 </li>
+                <?php if (isset($_SESSION['login']) && $_SESSION['login']) { ?>
                 <li>
                     <a class="nav-link" href="components/manageArticles.php">مدیریت مقالات</a>
                 </li>
+                <?php }?>
             </ul>
         </div>
         <button id="darkModeToggle" class="btn btn-outline-secondary" aria-label="تغییر حالت تاریک/روشن">
