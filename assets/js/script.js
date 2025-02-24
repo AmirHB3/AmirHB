@@ -128,29 +128,59 @@ document.addEventListener('DOMContentLoaded', function () {
     window.addEventListener('scroll', animateSkills);
 
     // Form submission handling with SweetAlert customization
-    const contactForm = document.getElementById('contact-form'); // Select the form
+    const contactForm = document.getElementById('contact-form'); // انتخاب فرم
 
     if (contactForm) {
         contactForm.addEventListener('submit', function (e) {
-            e.preventDefault();
+            e.preventDefault(); // جلوگیری از ارسال پیش‌فرض فرم
 
-            // Customize SweetAlert appearance and behavior
-            Swal.fire({
-                icon: 'success',
-                title: 'پیام شما ارسال شد!',
-                text: 'به زودی با شما تماس خواهم گرفت.',
-                confirmButtonText: 'باشه',
-                confirmButtonColor: '#007bff',
-                background: body.classList.contains('dark-mode') ? '#343a40' : '#f9f9f9',
-                color: body.classList.contains('dark-mode') ? '#f8f9fa' : '#333',
-                customClass: {
-                    popup: 'animated fadeInDown',
-                    title: 'swal-title',
-                    htmlContainer: 'swal-html'
+            // ایجاد یک شی FormData از فرم
+            const formData = new FormData(this);
+
+            // ارسال داده‌ها با استفاده از Fetch API
+            fetch('../AmirHB/components/contactUs.php', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.text()) // دریافت پاسخ به صورت متن
+            .then(data => {
+                // نمایش SweetAlert با توجه به پاسخ سرور
+                Swal.fire({
+                    icon: data.includes('موفقیت') ? 'success' : 'error', // بررسی پاسخ سرور
+                    title: data.includes('موفقیت') ? 'پیام شما ارسال شد!' : 'خطا در ارسال پیام',
+                    text: data, // نمایش پیام سرور
+                    confirmButtonText: 'باشه',
+                    confirmButtonColor: '#007bff',
+                    background: body.classList.contains('dark-mode') ? '#343a40' : '#f9f9f9',
+                    color: body.classList.contains('dark-mode') ? '#f8f9fa' : '#333',
+                    customClass: {
+                        popup: 'animated fadeInDown',
+                        title: 'swal-title',
+                        htmlContainer: 'swal-html'
+                    }
+                });
+
+                if (data.includes('موفقیت')) {
+                    this.reset(); // ریست فرم در صورت موفقیت
                 }
+            })
+            .catch(error => {
+                console.error('خطا در ارسال درخواست:', error);
+                Swal.fire({
+                    icon: 'error',
+                    title: 'خطا در ارسال پیام',
+                    text: 'مشکلی در ارتباط با سرور رخ داده است.',
+                    confirmButtonText: 'باشه',
+                    confirmButtonColor: '#007bff',
+                    background: body.classList.contains('dark-mode') ? '#343a40' : '#f9f9f9',
+                    color: body.classList.contains('dark-mode') ? '#f8f9fa' : '#333',
+                    customClass: {
+                        popup: 'animated fadeInDown',
+                        title: 'swal-title',
+                        htmlContainer: 'swal-html'
+                    }
+                });
             });
-
-            this.reset(); // Reset form fields after submission
         });
     }
 

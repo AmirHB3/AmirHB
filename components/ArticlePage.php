@@ -34,7 +34,7 @@ mysqli_close($conn);
             </div>
             
             <!-- تصویر مقاله -->
-            <img src="<?php echo htmlspecialchars($article['image_path']); ?>" alt="تصویر مقاله" class="img-fluid article-img rounded mb-4">
+            <img src="<?php echo 'uploads/' . htmlspecialchars($article['image_path']); ?>" alt="تصویر مقاله" class="img-fluid article-img rounded mb-4">
             
             <!-- متن مقاله -->
             <div class="article-content">

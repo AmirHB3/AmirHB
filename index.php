@@ -16,11 +16,7 @@ include 'components/header.php';
         <a class="navbar-brand d-lg-none mx-auto mt-1" href="#home">AmirHB</a>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="#home">خانه</a>
-                </li>
-
-                <?php if (isset($_SESSION['login']) && $_SESSION['login']) { ?>
+            <?php if (isset($_SESSION['login']) && $_SESSION['login']) { ?>
                     <li class="nav-item">
                         <a class="nav-link" href="components/logout.php">خروج</a>
                     </li>
@@ -32,7 +28,10 @@ include 'components/header.php';
                     <li class="nav-item">
                         <a class="nav-link" href="components/registerAction.php">ثبت نام</a>
                     </li>
-                <?php } ?>
+                <?php } ?>    
+                <li class="nav-item">
+                    <a class="nav-link" href="#home">خانه</a>
+                </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#about">درباره من</a>
                 </li>
@@ -57,6 +56,7 @@ include 'components/header.php';
         </button>
     </div>
 </nav>
+
 <!-- About Section -->
 <section id="about" class="py-5 fade-in">
     <div class="container">
@@ -135,7 +135,7 @@ include 'components/header.php';
                 while ($row = mysqli_fetch_array($result)) {
                     echo '<div class="col-md-6 col-lg-4 mb-4">';
                     echo '<div class="card project-card">';
-                    echo '<img src="components/' . htmlspecialchars($row['image_path']) . '" class="card-img-top" alt="تصویر مقاله">';
+                    echo '<img src="components/uploads/' . htmlspecialchars($row['image_path']) . '" class="card-img-top" alt="تصویر مقاله">';
                     echo '<div class="card-body">';
                     echo '<h3 class="card-title h5">' . htmlspecialchars($row['title']) . '</h3>';
                     echo '<p class="card-text">' . substr(strip_tags($row['content']), 0, 100) . '...</p>';
@@ -153,31 +153,8 @@ include 'components/header.php';
         </div>
     </div>
 </section>
-<!-- Contact Section -->
-<section id="contact" class="py-5 bg-light fade-in">
-    <div class="container">
-        <h2 class="text-center mb-5">ارتباط با من</h2>
-        <div class="row justify-content-center">
-            <div class="col-md-8">
-                <form id="contact-form">
-                    <div class="mb-3">
-                        <input type="text" class="form-control" id="name" placeholder="نام شما" required>
-                    </div>
-                    <div class="mb-3">
-                        <input type="email" class="form-control" id="email" placeholder="ایمیل شما" required>
-                    </div>
-                    <div class="mb-3">
-                        <textarea class="form-control" id="message" rows="5" placeholder="پیام شما" required></textarea>
-                    </div>
-                    <div class="text-center">
-                        <button type="submit" class="btn btn-primary btn-lg">ارسال</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-</section>
 
 <?php
+include 'components/contactUsAction.php';
 include 'components/footer.php';
 ?>
