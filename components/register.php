@@ -5,7 +5,22 @@ $password = $_POST['password'];
 $repassword = $_POST['repassword'];
 
 if($password != $repassword){
-    echo("<h1>رمز عبور نادرست می باشد!</h1>");
+    ?>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+        Swal.fire({
+            icon: 'error',
+            title: 'رمزعبور با تکرار آن مطابقت ندارد.',
+            showConfirmButton: false,
+            timer: 1000,
+            didClose: () => {
+                window.location.replace("./registerAction.php");
+            }
+        });
+    });
+    </script>
+    <?php
 } else {
     $connect_db = mysqli_connect("localhost", "root", "", "amirhb");
 
@@ -17,14 +32,40 @@ if($password != $repassword){
 
     if ($query_result) {
         ?>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
         <script>
-            location.replace("./loginAction.php");
+            document.addEventListener("DOMContentLoaded", function() {
+            Swal.fire({
+                icon: 'success',
+                title: 'ثبت نام با موفقیت انجام شد',
+                showConfirmButton: false,
+                timer: 1000,
+                didClose: () => {
+                    window.location.replace("./loginAction.php");
+                }
+            });
+        });
+    </script>
+    <?php
+    } 
+    else {
+        ?>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <script>
+            document.addEventListener("DOMContentLoaded", function() {
+            Swal.fire({
+                icon: 'error',
+                title: 'ثبت نام انجام نشد.',
+                showConfirmButton: false,
+                timer: 1000,
+                didClose: () => {
+                    window.location.replace("./registerAction.php");
+                }
+            });
+        });
         </script>
         <?php
-    } else {
-        echo "<h1>خطا در ثبت‌نام: " . mysqli_error($connect_db) . "</h1>";
     }
-
-    mysqli_close($connect_db);
+mysqli_close($connect_db);
 }
 ?>

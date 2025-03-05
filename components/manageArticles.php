@@ -1,5 +1,8 @@
 <?php
 include 'Customnavbar.php';
+if (!isset($_SESSION['admin']) || !$_SESSION['admin']){
+    header("Location: ../index.php");
+}
 $conn = mysqli_connect("localhost", "root", "", "amirhb");
 
 if (!$conn) {

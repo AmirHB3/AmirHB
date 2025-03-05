@@ -44,7 +44,7 @@ include 'components/header.php';
                 <li class="nav-item">
                     <a class="nav-link" href="#contact">تماس</a>
                 </li>
-                <?php if (isset($_SESSION['login']) && $_SESSION['login']) { ?>
+                <?php if(isset($_SESSION['admin']) && $_SESSION['admin']) { ?>
                 <li>
                     <a class="nav-link" href="components/manageArticles.php">مدیریت مقالات</a>
                 </li>

@@ -128,27 +128,27 @@ document.addEventListener('DOMContentLoaded', function () {
     window.addEventListener('scroll', animateSkills);
 
     // Form submission handling with SweetAlert customization
-    const contactForm = document.getElementById('contact-form'); // انتخاب فرم
+    const contactForm = document.getElementById('contact-form'); // Select form
 
     if (contactForm) {
         contactForm.addEventListener('submit', function (e) {
-            e.preventDefault(); // جلوگیری از ارسال پیش‌فرض فرم
+            e.preventDefault(); // Suggestion of default form submission
 
-            // ایجاد یک شی FormData از فرم
+            // Creating a FormData object from a form
             const formData = new FormData(this);
 
-            // ارسال داده‌ها با استفاده از Fetch API
+            // Sending data using the Fetch API
             fetch('../AmirHB/components/contactUs.php', {
                 method: 'POST',
                 body: formData
             })
-            .then(response => response.text()) // دریافت پاسخ به صورت متن
+            .then(response => response.text()) // Receive a response in text form
             .then(data => {
-                // نمایش SweetAlert با توجه به پاسخ سرور
+                // Display SweetAlert based on server response
                 Swal.fire({
-                    icon: data.includes('موفقیت') ? 'success' : 'error', // بررسی پاسخ سرور
+                    icon: data.includes('موفقیت') ? 'success' : 'error', // Check server response
                     title: data.includes('موفقیت') ? 'پیام شما ارسال شد!' : 'خطا در ارسال پیام',
-                    text: data, // نمایش پیام سرور
+                    text: data, // Show server message
                     confirmButtonText: 'باشه',
                     confirmButtonColor: '#007bff',
                     background: body.classList.contains('dark-mode') ? '#343a40' : '#f9f9f9',
@@ -161,7 +161,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 });
 
                 if (data.includes('موفقیت')) {
-                    this.reset(); // ریست فرم در صورت موفقیت
+                    this.reset(); // Reset form if successful
                 }
             })
             .catch(error => {

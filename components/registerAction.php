@@ -6,6 +6,7 @@
     <title>ثبت نام</title>
     <link rel="stylesheet" href="../assets/css/login_register.css">
     <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
 </head>
 <body>
     <h1>فرم ثبت نام</h1>
@@ -17,5 +18,6 @@
         <input type="submit" value="ورود">
         <p>حساب کاربری دارید؟ <a href="loginAction.php">وارد شوید</a></p>
     </form>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </body>
 </html>

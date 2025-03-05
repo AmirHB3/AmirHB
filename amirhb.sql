@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Feb 24, 2025 at 12:22 PM
+-- Generation Time: Mar 05, 2025 at 06:13 AM
 -- Server version: 8.3.0
 -- PHP Version: 8.2.18
 
@@ -60,7 +60,7 @@ CREATE TABLE IF NOT EXISTS `contact_us` (
   `email` varchar(30) COLLATE utf8mb3_persian_ci NOT NULL,
   `message` text COLLATE utf8mb3_persian_ci NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_persian_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_persian_ci;
 
 --
 -- Dumping data for table `contact_us`
@@ -71,7 +71,8 @@ INSERT INTO `contact_us` (`id`, `name`, `email`, `message`) VALUES
 (3, 'Reza', 'reza@gmail.com', 'Hello.\r\nIm Reza.'),
 (7, 'Omid', 'omid@gmail.com', 'Hi, im a programmer.'),
 (8, 'Amirhossein bahrami', 'reza@gmail.com', 'aaa'),
-(9, 'Hamed', 'Hamed12@gmail.com', 'سلام');
+(9, 'Hamed', 'Hamed12@gmail.com', 'سلام'),
+(10, '<img src=x onerror=alert(', 'Ali@gmail.com', 'a');
 
 -- --------------------------------------------------------
 
@@ -113,18 +114,20 @@ CREATE TABLE IF NOT EXISTS `users` (
   `username` varchar(20) COLLATE utf8mb3_persian_ci NOT NULL,
   `email` varchar(30) COLLATE utf8mb3_persian_ci NOT NULL,
   `password` varchar(20) COLLATE utf8mb3_persian_ci NOT NULL,
+  `admin` tinyint(1) NOT NULL,
   PRIMARY KEY (`ID`)
-) ENGINE=MyISAM AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_persian_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_persian_ci;
 
 --
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`ID`, `username`, `email`, `password`) VALUES
-(4, 'Amir', 'amirbaahrami@gmail.com', 'Amir1234'),
-(6, 'Reza', 'reza@gmail.com', 'reza1234'),
-(9, 'Ali', 'Ali@gmail.com', 'ali1234'),
-(13, 'omid', 'omid@gmail.com', 'omid1234');
+INSERT INTO `users` (`ID`, `username`, `email`, `password`, `admin`) VALUES
+(4, 'Amir', 'amirbaahrami@gmail.com', 'Amir1234', 1),
+(6, 'Reza', 'reza@gmail.com', 'reza1234', 0),
+(14, 'Ahmad', 'Ahmad@gmail.com', 'Ahmad1234', 0),
+(9, 'Ali', 'Ali@gmail.com', 'ali1234', 0),
+(13, 'omid', 'omid@gmail.com', 'omid1234', 0);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
